@@ -1,0 +1,58 @@
+plugins {
+    id 'java-platform'
+    id 'io.wusa.semver-git-plugin'
+    id 'maven-publish'
+}
+
+// version from git -- set in parent
+// version = semver.info
+
+description = 'Evolution of github.com:hypfvieh/hypfvieh/bluez-dbus [gradle, java 11, windows compat] -- platform dependencies'
+
+apply from: './platform.gradle'
+
+javaPlatform {
+    allowDependencies()
+}
+
+dependencies {
+    constraints {
+        // logging
+        api group: 'org.slf4j', name: 'slf4j-api', version: "${bluez__slf4jVersion}"
+        runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${bluez__logbackVersion}"
+
+        // dbus-java
+        api group: 'com.gpaglia.dbus', name: 'dbus-java', version: "${bluez__dbusJavaVersion}"
+
+        // hamcrest
+        api group: 'org.hamcrest', name: 'hamcrest-core', version: "${bluez__hamcrestVersion}"
+
+        // hamcrest-optional
+        api group: 'com.github.npathai', name: 'hamcrest-optional', version: "${bluez__hamcrestOptionalVersion}"
+
+        // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+        api group: 'org.apache.commons', name: 'commons-lang3', version: "${bluez__commonsLang3Version}"
+
+        // https://mvnrepository.com/artifact/com.github.hypfvieh/java-utils
+        api group: 'com.github.hypfvieh', name: 'java-utils', version: "${bluez__hypfviehUtilsVersion}"
+
+        // https://mvnrepository.com/artifact/com.github.jnr/jnr-unixsocket
+        api group: 'com.github.jnr', name: 'jnr-unixsocket', version: "${bluez__unixSocketVersion}"
+
+    }
+    // junit5 BOM
+    api platform("org.junit:junit-bom:${bluez__junitVersion}")
+
+}
+
+publishing {
+    publications {
+        //noinspection GroovyAssignabilityCheck
+        dbusJavaPlatform(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}

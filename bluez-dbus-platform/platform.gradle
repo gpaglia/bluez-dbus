@@ -1,0 +1,34 @@
+// Project plugins and dependencies versions
+ext {
+    // plugins
+    bluez__wusaSemverPluginVersion = '2.1.0'
+    bluez__lombokPluginVersion = '5.1.0'
+
+    // dbus-java
+    bluez__dbusJavaVersion = '3.2.1-GP.2'
+
+    // https://mvnrepository.com/artifact/com.github.hypfvieh/java-utils
+    bluez__hypfviehUtilsVersion = '1.0.6'
+
+    // https://mvnrepository.com/artifact/com.github.jnr/jnr-unixsocket
+    bluez__unixSocketVersion = '0.30'
+
+    // slf4j
+    bluez__slf4jVersion = '1.7.30'
+
+    // logback
+    bluez__logbackVersion = '1.2.3'
+
+    // apache commons lang3
+    bluez__commonsLang3Version = '3.10'
+
+    // junit5
+    bluez__junitVersion = '5.6.2'
+
+    // hamcrest
+    bluez__hamcrestVersion = '2.2'
+
+    // hamcrest-optional version
+    bluez__hamcrestOptionalVersion = '2.0.0'
+
+}
