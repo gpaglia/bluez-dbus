@@ -16,7 +16,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.obex.FileTransfer<br>
  * <br>
  * <b>Object path:</b><br>
- *             [Session object path]<br>
+ * [Session object path]<br>
  * <br>
  */
 public interface FileTransfer extends DBusInterface {
@@ -26,11 +26,10 @@ public interface FileTransfer extends DBusInterface {
      * <br>
      * Change the current folder of the remote device.<br>
      * <br>
-     * 
-     * @param _folder
-     * 
+     *
+     * @param _folder the folder
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     void ChangeFolder(String _folder) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -39,11 +38,10 @@ public interface FileTransfer extends DBusInterface {
      * <br>
      * Create a new folder in the remote device.<br>
      * <br>
-     * 
-     * @param _folder
-     * 
+     *
+     * @param _folder the folder
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     void CreateFolder(String _folder) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -55,17 +53,18 @@ public interface FileTransfer extends DBusInterface {
      * <br>
      * The following keys are defined:<br>
      * <br>
-     * 	string Name : Object name in UTF-8 format<br>
-     * 	string Type : Either "folder" or "file"<br>
-     * 	uint64 Size : Object size or number of items in<br>
+     * string Name : Object name in UTF-8 format<br>
+     * string Type : Either "folder" or "file"<br>
+     * uint64 Size : Object size or number of items in<br>
      * folder<br>
-     * 	string Permission : Group, owner and other<br>
-     * 	permission<br>
-     * 	uint64 Modified : Last change<br>
-     * 	uint64 Accessed : Last access<br>
-     * 	uint64 Created : Creation date<br>
+     * string Permission : Group, owner and other<br>
+     * permission<br>
+     * uint64 Modified : Last change<br>
+     * uint64 Accessed : Last access<br>
+     * uint64 Created : Creation date<br>
      * <br>
-     * 
+     *
+     * @return the map [ ]
      * @throws BluezFailedException on failure
      */
     Map<String, Variant<?>>[] ListFolder() throws BluezFailedException;
@@ -86,12 +85,12 @@ public interface FileTransfer extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _targetfile
-     * @param _sourcefile
-     * 
+     *
+     * @param _targetfile the targetfile
+     * @param _sourcefile the sourcefile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> GetFile(String _targetfile, String _sourcefile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -108,12 +107,12 @@ public interface FileTransfer extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _sourcefile
-     * @param _targetfile
-     * 
+     *
+     * @param _sourcefile the sourcefile
+     * @param _targetfile the targetfile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> PutFile(String _sourcefile, String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -123,12 +122,11 @@ public interface FileTransfer extends DBusInterface {
      * Copy a file within the remote device from source file<br>
      * to target file.<br>
      * <br>
-     * 
-     * @param _sourcefile
-     * @param _targetfile
-     * 
+     *
+     * @param _sourcefile the sourcefile
+     * @param _targetfile the targetfile
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     void CopyFile(String _sourcefile, String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -138,12 +136,11 @@ public interface FileTransfer extends DBusInterface {
      * Move a file within the remote device from source file<br>
      * to the target file.<br>
      * <br>
-     * 
-     * @param _sourcefile
-     * @param _targetfile
-     * 
+     *
+     * @param _sourcefile the sourcefile
+     * @param _targetfile the targetfile
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     void MoveFile(String _sourcefile, String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -152,11 +149,10 @@ public interface FileTransfer extends DBusInterface {
      * <br>
      * Deletes the specified file/folder.<br>
      * <br>
-     * 
-     * @param _file
-     * 
+     *
+     * @param _file the file
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     void Delete(String _file) throws BluezInvalidArgumentsException, BluezFailedException;
 

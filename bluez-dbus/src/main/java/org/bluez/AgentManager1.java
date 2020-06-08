@@ -14,7 +14,7 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
  * <b>Interface:</b> org.bluez.AgentManager1<br>
  * <br>
  * <b>Object path:</b><br>
- *             /org/bluez<br>
+ * /org/bluez<br>
  * <br>
  */
 public interface AgentManager1 extends DBusInterface {
@@ -50,12 +50,11 @@ public interface AgentManager1 extends DBusInterface {
      * If an empty string is used it will fallback to<br>
      * "KeyboardDisplay".<br>
      * <br>
-     * 
-     * @param _agent
-     * @param _capability
-     * 
+     *
+     * @param _agent      the agent
+     * @param _capability the capability
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezAlreadyExistsException when item already exists
+     * @throws BluezAlreadyExistsException    when item already exists
      */
     void RegisterAgent(DBusPath _agent, String _capability) throws BluezInvalidArgumentsException, BluezAlreadyExistsException;
 
@@ -66,9 +65,8 @@ public interface AgentManager1 extends DBusInterface {
      * registered. The object path parameter must match the<br>
      * same value that has been used on registration.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezDoesNotExistException when item does not exist
      */
     void UnregisterAgent(DBusPath _agent) throws BluezDoesNotExistException;
@@ -83,9 +81,8 @@ public interface AgentManager1 extends DBusInterface {
      * Special permission might be required to become<br>
      * the default agent.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezDoesNotExistException when item does not exist
      */
     void RequestDefaultAgent(DBusPath _agent) throws BluezDoesNotExistException;

@@ -19,48 +19,48 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.MediaFolder1<br>
  * <br>
  * <b>Object path:</b><br>
- *             freely definable (Target role)<br>
+ * freely definable (Target role)<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * 		uint32 NumberOfItems [readonly]<br>
+ * uint32 NumberOfItems [readonly]<br>
  * <br>
- * 			Number of items in the folder<br>
+ * Number of items in the folder<br>
  * <br>
- * 		string Name [readonly]<br>
+ * string Name [readonly]<br>
  * <br>
- * 			Folder name:<br>
+ * Folder name:<br>
  * <br>
- * 			Possible values:<br>
- * 				"/Filesystem/...": Filesystem scope<br>
- * 				"/NowPlaying/...": NowPlaying scope<br>
+ * Possible values:<br>
+ * "/Filesystem/...": Filesystem scope<br>
+ * "/NowPlaying/...": NowPlaying scope<br>
  * <br>
- * 			Note: /NowPlaying folder might not be listed if player<br>
- * 			is stopped, folders created by Search are virtual so<br>
- * 			once another Search is perform or the folder is<br>
- * 			changed using ChangeFolder it will no longer be listed.<br>
+ * Note: /NowPlaying folder might not be listed if player<br>
+ * is stopped, folders created by Search are virtual so<br>
+ * once another Search is perform or the folder is<br>
+ * changed using ChangeFolder it will no longer be listed.<br>
  * <br>
  * <br>
- * 			Offset of the first item.<br>
+ * Offset of the first item.<br>
  * <br>
- * 			Default value: 0<br>
+ * Default value: 0<br>
  * <br>
- * 		uint32 End:<br>
+ * uint32 End:<br>
  * <br>
- * 			Offset of the last item.<br>
+ * Offset of the last item.<br>
  * <br>
- * 			Default value: NumbeOfItems<br>
+ * Default value: NumbeOfItems<br>
  * <br>
- * 		array{string} Attributes<br>
+ * array{string} Attributes<br>
  * <br>
- * 			Item properties that should be included in the list.<br>
+ * Item properties that should be included in the list.<br>
  * <br>
- * 			Possible Values:<br>
+ * Possible Values:<br>
  * <br>
- * 				"title", "artist", "album", "genre",<br>
- * 				"number-of-tracks", "number", "duration"<br>
+ * "title", "artist", "album", "genre",<br>
+ * "number-of-tracks", "number", "duration"<br>
  * <br>
- * 			Default Value: All<br>
+ * Default Value: All<br>
  * <br>
  * <br>
  */
@@ -74,12 +74,12 @@ public interface MediaFolder1 extends DBusInterface {
      * To list the items found use the folder object returned<br>
      * and pass to ChangeFolder.<br>
      * <br>
-     * 
-     * @param _value
-     * @param _filter
-     * 
+     *
+     * @param _value  the value
+     * @param _filter the filter
+     * @return the d bus path
      * @throws BluezNotSupportedException when operation not supported
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException       on failure
      */
     DBusPath Search(String _value, Map<String, Variant<?>> _filter) throws BluezNotSupportedException, BluezFailedException;
 
@@ -88,12 +88,12 @@ public interface MediaFolder1 extends DBusInterface {
      * <br>
      * Return a list of items found<br>
      * <br>
-     * 
-     * @param _filter
-     * 
+     *
+     * @param _filter the filter
+     * @return the two tuple [ ]
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotSupportedException when operation not supported
-     * @throws BluezFailedException on failure
+     * @throws BluezNotSupportedException     when operation not supported
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Properties>[] ListItems(Map<String, Variant<?>> _filter) throws BluezInvalidArgumentsException, BluezNotSupportedException, BluezFailedException;
 
@@ -107,12 +107,11 @@ public interface MediaFolder1 extends DBusInterface {
      * exception is NowPlaying folder which should be always<br>
      * present while the player is active.<br>
      * <br>
-     * 
-     * @param _folder
-     * 
+     *
+     * @param _folder the folder
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotSupportedException when operation not supported
-     * @throws BluezFailedException on failure
+     * @throws BluezNotSupportedException     when operation not supported
+     * @throws BluezFailedException           on failure
      */
     void ChangeFolder(DBusPath _folder) throws BluezInvalidArgumentsException, BluezNotSupportedException, BluezFailedException;
 

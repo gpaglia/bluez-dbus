@@ -170,11 +170,11 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
  * 			application are exposed.<br>
  * <br>
  * 			Possible values:<br>
- * 				<type> <byte array><br>
+ * 				{@literal <type> <byte array>}<br>
  * 				...<br>
  * <br>
  * 			Example:<br>
- * 				<Transport Discovery> <Organization Flags...><br>
+ * 				{@literal <Transport Discovery> <Organization Flags...>}s<br>
  * 				0x26                   0x01         0x01...<br>
  * <br>
  */
@@ -245,7 +245,7 @@ public interface Device1 extends DBusInterface {
      * UUID for the profile.<br>
      * <br>
      * 
-     * @param _uuid
+     * @param _uuid The UUID
      * 
      * @throws BluezFailedException on failure
      * @throws BluezInProgressException when operation already in progress
@@ -267,7 +267,7 @@ public interface Device1 extends DBusInterface {
      * succeed.<br>
      * <br>
      * 
-     * @param _uuid
+     * @param _uuid The UUID
      * 
      * @throws BluezFailedException on failure
      * @throws BluezInProgressException when operation already in progress

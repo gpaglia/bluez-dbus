@@ -25,6 +25,9 @@ dependencies {
     // https://mvnrepository.com/artifact/com.github.jnr/jnr-unixsocket
     implementation group: 'com.github.jnr', name: 'jnr-unixsocket'
 
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3'
+
     // slf4j
     implementation group: 'org.slf4j', name: 'slf4j-api'
 

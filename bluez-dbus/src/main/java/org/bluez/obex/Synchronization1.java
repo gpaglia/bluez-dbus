@@ -16,7 +16,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.obex.Synchronization1<br>
  * <br>
  * <b>Object path:</b><br>
- *             [Session object path]<br>
+ * [Session object path]<br>
  * <br>
  */
 public interface Synchronization1 extends DBusInterface {
@@ -30,14 +30,13 @@ public interface Synchronization1 extends DBusInterface {
      * <br>
      * location: Where the phonebook is stored, possible<br>
      * values:<br>
-     * 	"int" ( "internal" which is default )<br>
-     * 	"sim1"<br>
-     * 	"sim2"<br>
-     * 	......<br>
+     * "int" ( "internal" which is default )<br>
+     * "sim1"<br>
+     * "sim2"<br>
+     * ......<br>
      * <br>
-     * 
-     * @param _location
-     * 
+     *
+     * @param _location the location
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     void SetLocation(String _location) throws BluezInvalidArgumentsException;
@@ -58,11 +57,11 @@ public interface Synchronization1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _targetfile
-     * 
+     *
+     * @param _targetfile the targetfile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> GetPhonebook(String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -78,11 +77,11 @@ public interface Synchronization1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _sourcefile
-     * 
+     *
+     * @param _sourcefile the sourcefile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> PutPhonebook(String _sourcefile) throws BluezInvalidArgumentsException, BluezFailedException;
 

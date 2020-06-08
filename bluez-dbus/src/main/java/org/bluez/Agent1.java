@@ -15,7 +15,7 @@ import org.freedesktop.dbus.types.UInt32;
  * <b>Interface:</b> org.bluez.Agent1<br>
  * <br>
  * <b>Object path:</b><br>
- *             freely definable<br>
+ * freely definable<br>
  * <br>
  */
 public interface Agent1 extends DBusInterface {
@@ -41,9 +41,9 @@ public interface Agent1 extends DBusInterface {
      * The return value should be a string of 1-16 characters<br>
      * length. The string can be alphanumeric.<br>
      * <br>
-     * 
-     * @param _device
-     * 
+     *
+     * @param _device the device
+     * @return the string
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -71,10 +71,9 @@ public interface Agent1 extends DBusInterface {
      * zero-padded to 6 digits. This is for harmony with<br>
      * the later specification.<br>
      * <br>
-     * 
-     * @param _device
-     * @param _pincode
-     * 
+     *
+     * @param _device  the device
+     * @param _pincode the pincode
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -89,9 +88,9 @@ public interface Agent1 extends DBusInterface {
      * The return value should be a numeric value<br>
      * between 0-999999.<br>
      * <br>
-     * 
-     * @param _device
-     * 
+     *
+     * @param _device the device
+     * @return the u int 32
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -117,10 +116,10 @@ public interface Agent1 extends DBusInterface {
      * so the display should be zero-padded at the start if<br>
      * the value contains less than 6 digits.<br>
      * <br>
-     * 
-     * @param _device
-     * @param _passkey
-     * @param _entered
+     *
+     * @param _device  the device
+     * @param _passkey the passkey
+     * @param _entered the entered
      */
     void DisplayPasskey(DBusPath _device, UInt32 _passkey, UInt16 _entered);
 
@@ -137,10 +136,9 @@ public interface Agent1 extends DBusInterface {
      * so the display should be zero-padded at the start if<br>
      * the value contains less than 6 digits.<br>
      * <br>
-     * 
-     * @param _device
-     * @param _passkey
-     * 
+     *
+     * @param _device  the device
+     * @param _passkey the passkey
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -157,9 +155,8 @@ public interface Agent1 extends DBusInterface {
      * device would not be connected to the adapter via<br>
      * Bluetooth yet.<br>
      * <br>
-     * 
-     * @param _device
-     * 
+     *
+     * @param _device the device
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -171,10 +168,9 @@ public interface Agent1 extends DBusInterface {
      * This method gets called when the service daemon<br>
      * needs to authorize a connection/service request.<br>
      * <br>
-     * 
-     * @param _device
-     * @param _uuid
-     * 
+     *
+     * @param _device the device
+     * @param _uuid   the uuid
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */

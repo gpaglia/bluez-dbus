@@ -16,7 +16,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.obex.Client1<br>
  * <br>
  * <b>Object path:</b><br>
- *             /org/bluez/obex<br>
+ * /org/bluez/obex<br>
  * <br>
  */
 public interface Client1 extends DBusInterface {
@@ -30,24 +30,24 @@ public interface Client1 extends DBusInterface {
      * type-specific parameters. Typical parameters that can<br>
      * be set in this dictionary include the following:<br>
      * <br>
-     * 	string "Target" : type of session to be created<br>
-     * 	string "Source" : local address to be used<br>
-     * 	byte "Channel"<br>
+     * string "Target" : type of session to be created<br>
+     * string "Source" : local address to be used<br>
+     * byte "Channel"<br>
      * <br>
      * The currently supported targets are the following:<br>
      * <br>
-     * 	"ftp"<br>
-     * 	"map"<br>
-     * 	"opp"<br>
-     * 	"pbap"<br>
-     * 	"sync"<br>
+     * "ftp"<br>
+     * "map"<br>
+     * "opp"<br>
+     * "pbap"<br>
+     * "sync"<br>
      * <br>
-     * 
-     * @param _destination
-     * @param _args
-     * 
+     *
+     * @param _destination the destination
+     * @param _args        the args
+     * @return the d bus path
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     DBusPath CreateSession(String _destination, Map<String, Variant<?>> _args) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -56,11 +56,10 @@ public interface Client1 extends DBusInterface {
      * <br>
      * Unregister session and abort pending transfers.<br>
      * <br>
-     * 
-     * @param _session
-     * 
+     *
+     * @param _session the session
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotAuthorizedException when not authorized
+     * @throws BluezNotAuthorizedException    when not authorized
      */
     void RemoveSession(DBusPath _session) throws BluezInvalidArgumentsException, BluezNotAuthorizedException;
 

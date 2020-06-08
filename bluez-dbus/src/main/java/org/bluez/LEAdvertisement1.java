@@ -51,11 +51,11 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
  * 			not be used.<br>
  * <br>
  * 			Possible values:<br>
- * 				<type> <byte array><br>
+ * 				{@literal <type> <byte array>}<br>
  * 				...<br>
  * <br>
  * 			Example:<br>
- * 				<Transport Discovery> <Organization Flags...><br>
+ * 				{@literal <Transport Discovery> <Organization Flags...>}<br>
  * 				0x26                   0x01         0x01...<br>
  * <br>
  * 		bool Discoverable [Experimental]<br>

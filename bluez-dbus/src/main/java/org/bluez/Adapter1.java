@@ -193,7 +193,7 @@ public interface Adapter1 extends DBusInterface {
      * path. It will remove also the pairing information.<br>
      * <br>
      * 
-     * @param _device
+     * @param _device The device
      * 
      * @throws BluezInvalidArgumentsException when argument is invalid
      * @throws BluezFailedException on failure
@@ -297,7 +297,7 @@ public interface Adapter1 extends DBusInterface {
      * right after call to StartDiscovery.<br>
      * <br>
      * 
-     * @param _filter
+     * @param _filter The filter
      * 
      * @throws BluezNotReadyException when bluez not ready
      * @throws BluezNotSupportedException when operation not supported
@@ -310,6 +310,7 @@ public interface Adapter1 extends DBusInterface {
      * <br>
      * Return available filters that can be given to<br>
      * SetDiscoveryFilter.<br>
+     * @return The discovery filters in an array.
      * <br>
      */
     String[] GetDiscoveryFilters();
@@ -348,8 +349,8 @@ public interface Adapter1 extends DBusInterface {
      * 		"random" - Random address<br>
      * <br>
      * 
-     * @param _properties
-     * 
+     * @param _properties The properties
+     * @return The Dbus path.
      * @throws BluezInvalidArgumentsException when argument is invalid
      * @throws BluezAlreadyExistsException when item already exists
      * @throws BluezNotSupportedException when operation not supported

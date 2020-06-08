@@ -16,7 +16,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.Media1<br>
  * <br>
  * <b>Object path:</b><br>
- *             [variable prefix]/{hci0,hci1,...}<br>
+ * [variable prefix]/{hci0,hci1,...}<br>
  * <br>
  */
 public interface Media1 extends DBusInterface {
@@ -32,27 +32,26 @@ public interface Media1 extends DBusInterface {
      * <br>
      * possible properties:<br>
      * <br>
-     * 	string UUID:<br>
+     * string UUID:<br>
      * <br>
-     * 		UUID of the profile which the endpoint<br>
-     * 		is for.<br>
+     * UUID of the profile which the endpoint<br>
+     * is for.<br>
      * <br>
-     * 	byte Codec:<br>
+     * byte Codec:<br>
      * <br>
-     * 		Assigned number of codec that the<br>
-     * 		endpoint implements. The values should<br>
-     * 		match the profile specification which<br>
-     * 		is indicated by the UUID.<br>
+     * Assigned number of codec that the<br>
+     * endpoint implements. The values should<br>
+     * match the profile specification which<br>
+     * is indicated by the UUID.<br>
      * <br>
-     * 	array{byte} Capabilities:<br>
+     * array{byte} Capabilities:<br>
      * <br>
-     * 		Capabilities blob, it is used as it is<br>
-     * 		so the size and byte order must match.<br>
+     * Capabilities blob, it is used as it is<br>
+     * so the size and byte order must match.<br>
      * <br>
-     * 
-     * @param _endpoint
-     * @param _properties
-     * 
+     *
+     * @param _endpoint   the endpoint
+     * @param _properties the properties
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     void RegisterEndpoint(DBusPath _endpoint, Map<String, Variant<?>> _properties) throws BluezInvalidArgumentsException;
@@ -62,8 +61,8 @@ public interface Media1 extends DBusInterface {
      * <br>
      * Unregister sender end point.<br>
      * <br>
-     * 
-     * @param _endpoint
+     *
+     * @param _endpoint the endpoint
      */
     void UnregisterEndpoint(DBusPath _endpoint);
 
@@ -82,12 +81,11 @@ public interface Media1 extends DBusInterface {
      * Note: If the sender disconnects its objects are<br>
      * automatically unregistered.<br>
      * <br>
-     * 
-     * @param _player
-     * @param _properties
-     * 
+     *
+     * @param _player     the player
+     * @param _properties the properties
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotSupportedException when operation not supported
+     * @throws BluezNotSupportedException     when operation not supported
      */
     void RegisterPlayer(DBusPath _player, Map<String, Variant<?>> _properties) throws BluezInvalidArgumentsException, BluezNotSupportedException;
 
@@ -97,8 +95,8 @@ public interface Media1 extends DBusInterface {
      * Unregister sender media player.<br>
      * <br>
      * <br>
-     * 
-     * @param _player
+     *
+     * @param _player the player
      */
     void UnregisterPlayer(DBusPath _player);
 

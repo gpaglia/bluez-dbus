@@ -18,16 +18,16 @@ import org.freedesktop.dbus.messages.DBusSignal;
  * <b>Interface:</b> org.bluez.HealthDevice1<br>
  * <br>
  * <b>Object path:</b><br>
- *             [variable prefix]/{hci0,hci1,...}/dev_XX_XX_XX_XX_XX_XX<br>
+ * [variable prefix]/{hci0,hci1,...}/dev_XX_XX_XX_XX_XX_XX<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * 		object MainChannel [readonly]<br>
+ * object MainChannel [readonly]<br>
  * <br>
- * 			The first reliable channel opened. It is needed by<br>
- * 			upper applications in order to send specific protocol<br>
- * 			data units. The first reliable can change after a<br>
- * 			reconnection.<br>
+ * The first reliable channel opened. It is needed by<br>
+ * upper applications in order to send specific protocol<br>
+ * data units. The first reliable can change after a<br>
+ * reconnection.<br>
  * <br>
  * <br>
  * <br>
@@ -41,9 +41,10 @@ public interface HealthDevice1 extends DBusInterface {
      * True if response matches with the buffer sent. If some<br>
      * error is detected False value is returned.<br>
      * <br>
-     * 
+     *
+     * @return the boolean
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezOutOfRangeException when value is out of range
+     * @throws BluezOutOfRangeException       when value is out of range
      */
     boolean Echo() throws BluezInvalidArgumentsException, BluezOutOfRangeException;
 
@@ -57,12 +58,12 @@ public interface HealthDevice1 extends DBusInterface {
      * Returns the object path that identifies the data<br>
      * channel that is already connected.<br>
      * <br>
-     * 
-     * @param _application
-     * @param _configuration
-     * 
+     *
+     * @param _application   the application
+     * @param _configuration the configuration
+     * @return the d bus path
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezHealthErrorException when operation fails
+     * @throws BluezHealthErrorException      when operation fails
      */
     DBusPath CreateChannel(DBusPath _application, String _configuration) throws BluezInvalidArgumentsException, BluezHealthErrorException;
 
@@ -74,12 +75,11 @@ public interface HealthDevice1 extends DBusInterface {
      * that received the data channel will be able to destroy<br>
      * it.<br>
      * <br>
-     * 
-     * @param _channel
-     * 
+     *
+     * @param _channel the channel
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotFoundException when item not found
-     * @throws BluezNotAllowedException when operation not allowed
+     * @throws BluezNotFoundException         when item not found
+     * @throws BluezNotAllowedException       when operation not allowed
      */
     void DestroyChannel(DBusPath _channel) throws BluezInvalidArgumentsException, BluezNotFoundException, BluezNotAllowedException;
 
@@ -90,15 +90,28 @@ public interface HealthDevice1 extends DBusInterface {
     public class ChannelConnected extends DBusSignal {
         private DBusPath channel;
 
+        /**
+         * Instantiates a new Channel connected.
+         *
+         * @param _path    the path
+         * @param _channel the channel
+         * @throws DBusException the d bus exception
+         */
         public ChannelConnected(String _path, DBusPath _channel) throws DBusException {
             super(_path, _channel);
             this.channel = _channel;
         }
 
+        /**
+         * Gets channel.
+         *
+         * @return the channel
+         */
         public DBusPath getChannel() {
             return channel;
         }
     }
+
     /**
      * This signal is launched when a data channel is deleted.<br>
      * After this signal the data channel path will not be<br>
@@ -108,11 +121,23 @@ public interface HealthDevice1 extends DBusInterface {
     public class ChannelDeleted extends DBusSignal {
         private DBusPath channel;
 
+        /**
+         * Instantiates a new Channel deleted.
+         *
+         * @param _path    the path
+         * @param _channel the channel
+         * @throws DBusException the d bus exception
+         */
         public ChannelDeleted(String _path, DBusPath _channel) throws DBusException {
             super(_path, _channel);
             this.channel = _channel;
         }
 
+        /**
+         * Gets channel.
+         *
+         * @return the channel
+         */
         public DBusPath getChannel() {
             return channel;
         }
