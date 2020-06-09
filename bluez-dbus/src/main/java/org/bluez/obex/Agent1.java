@@ -13,7 +13,7 @@ import org.freedesktop.dbus.DBusPath;
  * <b>Interface:</b> org.bluez.obex.Agent1<br>
  * <br>
  * <b>Object path:</b><br>
- *             freely definable<br>
+ * freely definable<br>
  * <br>
  */
 public interface Agent1 extends DBusInterface {
@@ -41,9 +41,9 @@ public interface Agent1 extends DBusInterface {
      * contain a Filename property that contains the default<br>
      * location and name that can be returned.<br>
      * <br>
-     * 
-     * @param _transfer
-     * 
+     *
+     * @param _transfer the transfer
+     * @return the string
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */

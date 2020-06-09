@@ -17,7 +17,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.Profile1<br>
  * <br>
  * <b>Object path:</b><br>
- *             freely definable<br>
+ * freely definable<br>
  * <br>
  */
 public interface Profile1 extends DBusInterface {
@@ -45,11 +45,10 @@ public interface Profile1 extends DBusInterface {
      * uint16 Version		Profile version (optional)<br>
      * uint16 Features		Profile features (optional)<br>
      * <br>
-     * 
-     * @param _device
-     * @param fd
-     * @param _fd_properties
-     * 
+     *
+     * @param _device        the device
+     * @param fd             the fd
+     * @param _fd_properties the fd properties
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -70,9 +69,8 @@ public interface Profile1 extends DBusInterface {
      * are disconnected before returning from this<br>
      * method call.<br>
      * <br>
-     * 
-     * @param _device
-     * 
+     *
+     * @param _device the device
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */

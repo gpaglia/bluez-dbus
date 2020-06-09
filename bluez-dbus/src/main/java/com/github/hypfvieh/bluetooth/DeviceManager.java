@@ -213,7 +213,7 @@ public class DeviceManager {
     /**
      * Setup bluetooth scan/discovery filter.
      *
-     * @param _filter
+     * @param _filter The filter
      * @throws BluezInvalidArgumentsException when argument is invalid
      * @throws BluezNotReadyException when bluez not ready
      * @throws BluezNotSupportedException when operation not supported
@@ -387,6 +387,7 @@ public class DeviceManager {
 
     /**
      * Register a signal handler callback on the connection.
+     * @param <T> The DBusSignal subtype
      * @param _handler callback class extending {@link AbstractSignalHandlerBase}
      * @throws DBusException on DBus error
      */

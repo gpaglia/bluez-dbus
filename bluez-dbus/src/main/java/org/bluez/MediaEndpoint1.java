@@ -14,7 +14,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.MediaEndpoint1<br>
  * <br>
  * <b>Object path:</b><br>
- *             freely definable<br>
+ * freely definable<br>
  * <br>
  */
 public interface MediaEndpoint1 extends DBusInterface {
@@ -28,11 +28,11 @@ public interface MediaEndpoint1 extends DBusInterface {
      * endpoint oject which will be configured and the<br>
      * properties must contain the following properties:<br>
      * <br>
-     * 	array{byte} Capabilities<br>
+     * array{byte} Capabilities<br>
      * <br>
-     * 
-     * @param _transport
-     * @param _properties
+     *
+     * @param _transport  the transport
+     * @param _properties the properties
      */
     void SetConfiguration(DBusPath _transport, Map<String, Variant<?>> _properties);
 
@@ -49,8 +49,9 @@ public interface MediaEndpoint1 extends DBusInterface {
      * configuration since on success the configuration is<br>
      * send back as parameter of SetConfiguration.<br>
      * <br>
-     * 
-     * @param _capabilities
+     *
+     * @param _capabilities the capabilities
+     * @return the byte [ ]
      */
     byte[] SelectConfiguration(byte[] _capabilities);
 
@@ -59,8 +60,8 @@ public interface MediaEndpoint1 extends DBusInterface {
      * <br>
      * Clear transport configuration.<br>
      * <br>
-     * 
-     * @param _transport
+     *
+     * @param _transport the transport
      */
     void ClearConfiguration(DBusPath _transport);
 

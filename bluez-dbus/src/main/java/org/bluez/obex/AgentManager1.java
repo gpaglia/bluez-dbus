@@ -13,7 +13,7 @@ import org.freedesktop.dbus.DBusPath;
  * <b>Interface:</b> org.bluez.obex.AgentManager1<br>
  * <br>
  * <b>Object path:</b><br>
- *             /org/bluez/obex<br>
+ * /org/bluez/obex<br>
  * <br>
  */
 public interface AgentManager1 extends DBusInterface {
@@ -25,9 +25,8 @@ public interface AgentManager1 extends DBusInterface {
      * the user to accept/reject objects. Object push<br>
      * service needs to authorize each received object.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezAlreadyExistsException when item already exists
      */
     void RegisterAgent(DBusPath _agent) throws BluezAlreadyExistsException;
@@ -39,9 +38,8 @@ public interface AgentManager1 extends DBusInterface {
      * registered. The object path parameter must match the<br>
      * same value that has been used on registration.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezDoesNotExistException when item does not exist
      */
     void UnregisterAgent(DBusPath _agent) throws BluezDoesNotExistException;

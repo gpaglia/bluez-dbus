@@ -1,0 +1,26 @@
+// settings file for bluez-dbus-parent project
+pluginManagement {
+    this.apply from: './bluez-dbus-platform/platform.gradle'
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        jcenter()
+    }
+
+    resolutionStrategy {
+    }
+
+    //noinspection GroovyAssignabilityCheck
+    plugins {
+        id 'io.wusa.semver-git-plugin' version "${bluez__wusaSemverPluginVersion}"
+        id 'io.freefair.lombok' version "${bluez__lombokPluginVersion}"
+    }
+
+}
+
+rootProject.name = 'dbus-java-parent'
+
+include 'bluez-dbus-platform',
+        'bluez-dbus' /*,
+        'bluez-dbus-osgi'
+        */

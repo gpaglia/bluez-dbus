@@ -16,7 +16,7 @@ import org.freedesktop.dbus.types.Variant;
  * <b>Interface:</b> org.bluez.obex.ObjectPush1<br>
  * <br>
  * <b>Object path:</b><br>
- *             [Session object path]<br>
+ * [Session object path]<br>
  * <br>
  */
 public interface ObjectPush1 extends DBusInterface {
@@ -33,11 +33,11 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _sourcefile
-     * 
+     *
+     * @param _sourcefile the sourcefile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> SendFile(String _sourcefile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -57,11 +57,11 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _targetfile
-     * 
+     *
+     * @param _targetfile the targetfile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> PullBusinessCard(String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -82,12 +82,12 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
-     * 
-     * @param _clientfile
-     * @param _targetfile
-     * 
+     *
+     * @param _clientfile the clientfile
+     * @param _targetfile the targetfile
+     * @return the two tuple
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException on failure
+     * @throws BluezFailedException           on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> ExchangeBusinessCards(String _clientfile, String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 

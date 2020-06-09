@@ -13,7 +13,7 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
  * <b>Interface:</b> org.bluez.ThermometerManager1<br>
  * <br>
  * <b>Object path:</b><br>
- *             [variable prefix]/{hci0,hci1,...}<br>
+ * [variable prefix]/{hci0,hci1,...}<br>
  * <br>
  */
 public interface ThermometerManager1 extends DBusInterface {
@@ -25,9 +25,8 @@ public interface ThermometerManager1 extends DBusInterface {
      * This agent will be notified about final temperature<br>
      * measurements.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     void RegisterWatcher(DBusPath _agent) throws BluezInvalidArgumentsException;
@@ -37,8 +36,8 @@ public interface ThermometerManager1 extends DBusInterface {
      * <br>
      * Unregisters a watcher.<br>
      * <br>
-     * 
-     * @param _agent
+     *
+     * @param _agent the agent
      */
     void UnregisterWatcher(DBusPath _agent);
 
@@ -49,9 +48,8 @@ public interface ThermometerManager1 extends DBusInterface {
      * for this agent. Intermediate measurements will<br>
      * be enabled only for thermometers which support it.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     void EnableIntermediateMeasurement(DBusPath _agent) throws BluezInvalidArgumentsException;
@@ -64,11 +62,10 @@ public interface ThermometerManager1 extends DBusInterface {
      * thermometers when the last agent removes the<br>
      * watcher for intermediate measurements.<br>
      * <br>
-     * 
-     * @param _agent
-     * 
+     *
+     * @param _agent the agent
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotFoundException when item not found
+     * @throws BluezNotFoundException         when item not found
      */
     void DisableIntermediateMeasurement(DBusPath _agent) throws BluezInvalidArgumentsException, BluezNotFoundException;
 
