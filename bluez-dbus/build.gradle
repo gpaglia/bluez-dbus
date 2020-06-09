@@ -14,16 +14,16 @@ description = 'Evolution of github.com:hypfvieh/bluez-dbus.git [gradle, java 11,
 // configure sourcesets
 dependencies {
     // platform constraints
-    implementation platform(project(':bluez-dbus-platform'))
+    api platform(project(':bluez-dbus-platform'))
 
     // dbus-java
-    implementation group: 'com.gpaglia.dbus', name: 'dbus-java'
+    api group: 'com.gpaglia.dbus', name: 'dbus-java'
 
     // https://mvnrepository.com/artifact/com.github.hypfvieh/java-utils
-    implementation group: 'com.github.hypfvieh', name: 'java-utils'
+    api group: 'com.github.hypfvieh', name: 'java-utils'
 
     // https://mvnrepository.com/artifact/com.github.jnr/jnr-unixsocket
-    implementation group: 'com.github.jnr', name: 'jnr-unixsocket'
+    api group: 'com.github.jnr', name: 'jnr-unixsocket'
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation group: 'org.apache.commons', name: 'commons-lang3'
@@ -33,13 +33,6 @@ dependencies {
 
     // logback
     runtimeOnly group: 'ch.qos.logback', name: 'logback-classic'
-
-    // https://mvnrepository.com/artifact/com.github.hypfvieh/java-utils
-    implementation group: 'com.github.hypfvieh', name: 'java-utils'
-
-    // https://mvnrepository.com/artifact/com.github.jnr/jnr-unixsocket
-    implementation group: 'com.github.jnr', name: 'jnr-unixsocket'
-
 
     // junit
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter'
