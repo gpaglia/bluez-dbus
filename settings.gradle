@@ -13,7 +13,11 @@ pluginManagement {
     //noinspection GroovyAssignabilityCheck
     plugins {
         id 'io.wusa.semver-git-plugin' version "${bluez__wusaSemverPluginVersion}"
-        id 'io.freefair.lombok' version "${bluez__lombokPluginVersion}"
+        // bnd / osgi
+        id 'biz.aQute.bnd.builder' version "${bluez__bndPluginVersion}"
+
+        // removing lombok, no payback
+        // id 'io.freefair.lombok' version "${bluez__lombokPluginVersion}"
     }
 
 }
