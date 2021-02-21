@@ -86,7 +86,8 @@ public interface ProvisionAgent1 extends DBusInterface {
      * requested pre-determined keys to be exchanged Out-of-Band, and<br>
      * the local role is Provisioner.
      *
-     * @param _value value
+     * @return The public key
+     *
      */
     byte[] PublicKey();
 
@@ -98,7 +99,7 @@ public interface ProvisionAgent1 extends DBusInterface {
      * for the Agent to Display, but does not require any additional<br>
      * input locally. For instance: "Enter "ABCDE" on remote device".<br>
      *
-     * @param _value
+     * @param _value The value
      */
     void DisplayString(String _value);
 
@@ -146,7 +147,7 @@ public interface ProvisionAgent1 extends DBusInterface {
      * This agent should prompt the user for specific input. For<br>
      * instance: "Enter value being displayed by remote device".
      *
-     * @param _type
+     * @param _type The type
      * @return UInt32 - maybe null
      */
     UInt32 PromptNumeric(String _type);
@@ -169,8 +170,8 @@ public interface ProvisionAgent1 extends DBusInterface {
      * left-justified, with trailing 0x00 octets filling the remaining<br>
      * bytes.
      *
-     * @param _type
-     * @return
+     * @param _type The type
+     * @return The prompt
      */
     byte[] PromptStatic(String _type);
 

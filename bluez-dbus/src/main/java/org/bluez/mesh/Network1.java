@@ -151,7 +151,7 @@ public interface Network1 extends DBusInterface {
      *
      * @throws BluezMeshInvalidArgumentsException when invalid argument provided
      * @throws BluezMeshAlreadyExistsException when mesh already exists
-     * @throws BluezMeshNotFoundExceptionwhen mesh not found
+     * @throws BluezMeshNotFoundException when mesh not found
      * @throws BluezMeshBusyException when still busy
      * @throws BluezMeshFailedException when operation failed
      */
@@ -163,10 +163,10 @@ public interface Network1 extends DBusInterface {
      * This removes the configuration information about the mesh node
      * identified by the 64-bit token parameter. The token parameter
      * has been obtained as a result of successful Join() method call.
-     *
+     * @param _token the token
      *
      * @throws BluezMeshInvalidArgumentsException when invalid argument provided
-     * @throws BluezMeshNotFoundExceptionwhen mesh not found
+     * @throws BluezMeshNotFoundException when mesh not found
      * @throws BluezMeshBusyException when still busy
      */
     void Leave(UInt64 _token) throws BluezMeshBusyException, BluezMeshNotFoundException, BluezMeshInvalidArgumentsException;
@@ -259,14 +259,14 @@ public interface Network1 extends DBusInterface {
      *  call JoinComplete method on object implementing
      *  org.bluez.mesh.Application1 interface.
      *
-     *  @param _appRoot
-     *  @param _uuid
-     *  @param _devKey
-     *  @param _netKey
-     *  @param _netIndex
-     *  @param _flags
-     *  @param _ivIndex
-     *  @param _unicast
+     *  @param _appRoot The app root
+     *  @param _uuid The uuid
+     *  @param _devKey The devKey
+     *  @param _netKey The netKey
+     *  @param _netIndex The netIndex
+     *  @param _flags The flags
+     *  @param _ivIndex The ivIndex
+     *  @param _unicast The unicast
      *
      *  @throws BluezMeshAlreadyExistsException when mesh already exists
      *  @throws BluezMeshInvalidArgumentsException when invalid argument provided
