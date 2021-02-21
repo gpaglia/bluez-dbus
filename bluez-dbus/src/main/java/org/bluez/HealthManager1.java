@@ -10,14 +10,14 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: health-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
  * <b>Interface:</b> org.bluez.HealthManager1<br>
  * <br>
  * <b>Object path:</b><br>
- * /org/bluez/<br>
+ *             /org/bluez/<br>
  * <br>
  */
 public interface HealthManager1 extends DBusInterface {
@@ -30,27 +30,29 @@ public interface HealthManager1 extends DBusInterface {
      * when the programs leaves the bus.<br>
      * <br>
      * config:<br>
-     * uint16 DataType:<br>
+     * 	uint16 DataType:<br>
      * <br>
-     * Mandatory<br>
+     * 		Mandatory<br>
      * <br>
-     * string Role:<br>
+     * 	string Role:<br>
      * <br>
-     * Mandatory. Possible values: "source",<br>
-     * "sink"<br>
+     * 		Mandatory. Possible values: "source",<br>
+     * 			"sink"<br>
      * <br>
-     * string Description:<br>
+     * 	string Description:<br>
      * <br>
-     * Optional<br>
+     * 		Optional<br>
      * <br>
-     * ChannelType:<br>
+     * 	ChannelType:<br>
      * <br>
-     * Optional, just for sources. Possible<br>
-     * values: "reliable", "streaming"<br>
+     * 		Optional, just for sources. Possible<br>
+     * 		values: "reliable", "streaming"<br>
      * <br>
+     * 
+     * @param _config config
      *
-     * @param _config the config
-     * @return the d bus path
+     * @return DBusPath - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     DBusPath CreateApplication(Map<String, Variant<?>> _config) throws BluezInvalidArgumentsException;
@@ -63,11 +65,12 @@ public interface HealthManager1 extends DBusInterface {
      * that started it leaves the bus. Only the creator of the<br>
      * application will be able to destroy it.<br>
      * <br>
-     *
-     * @param _application the application
+     * 
+     * @param _application application
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotFoundException         when item not found
-     * @throws BluezNotAllowedException       when operation not allowed
+     * @throws BluezNotFoundException when item not found
+     * @throws BluezNotAllowedException when operation not allowed
      */
     void DestroyApplication(DBusPath _application) throws BluezInvalidArgumentsException, BluezNotFoundException, BluezNotAllowedException;
 

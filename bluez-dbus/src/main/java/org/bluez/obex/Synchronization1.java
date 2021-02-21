@@ -9,14 +9,14 @@ import org.freedesktop.dbus.DBusPath;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: obex-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez.obex<br>
  * <b>Interface:</b> org.bluez.obex.Synchronization1<br>
  * <br>
  * <b>Object path:</b><br>
- * [Session object path]<br>
+ *             [Session object path]<br>
  * <br>
  */
 public interface Synchronization1 extends DBusInterface {
@@ -30,13 +30,14 @@ public interface Synchronization1 extends DBusInterface {
      * <br>
      * location: Where the phonebook is stored, possible<br>
      * values:<br>
-     * "int" ( "internal" which is default )<br>
-     * "sim1"<br>
-     * "sim2"<br>
-     * ......<br>
+     * 	"int" ( "internal" which is default )<br>
+     * 	"sim1"<br>
+     * 	"sim2"<br>
+     * 	......<br>
      * <br>
-     *
-     * @param _location the location
+     * 
+     * @param _location location
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
      */
     void SetLocation(String _location) throws BluezInvalidArgumentsException;
@@ -57,11 +58,13 @@ public interface Synchronization1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _targetfile targetfile
      *
-     * @param _targetfile the targetfile
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> GetPhonebook(String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -77,11 +80,13 @@ public interface Synchronization1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _sourcefile sourcefile
      *
-     * @param _sourcefile the sourcefile
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> PutPhonebook(String _sourcefile) throws BluezInvalidArgumentsException, BluezFailedException;
 

@@ -9,14 +9,14 @@ import org.freedesktop.dbus.DBusPath;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: obex-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez.obex<br>
  * <b>Interface:</b> org.bluez.obex.ObjectPush1<br>
  * <br>
  * <b>Object path:</b><br>
- * [Session object path]<br>
+ *             [Session object path]<br>
  * <br>
  */
 public interface ObjectPush1 extends DBusInterface {
@@ -33,11 +33,13 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _sourcefile sourcefile
      *
-     * @param _sourcefile the sourcefile
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> SendFile(String _sourcefile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -57,11 +59,13 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _targetfile targetfile
      *
-     * @param _targetfile the targetfile
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> PullBusinessCard(String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 
@@ -82,12 +86,14 @@ public interface ObjectPush1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _clientfile clientfile
+     * @param _targetfile targetfile
      *
-     * @param _clientfile the clientfile
-     * @param _targetfile the targetfile
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> ExchangeBusinessCards(String _clientfile, String _targetfile) throws BluezInvalidArgumentsException, BluezFailedException;
 

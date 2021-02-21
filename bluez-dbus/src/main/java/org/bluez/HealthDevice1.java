@@ -11,23 +11,23 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.messages.DBusSignal;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: health-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
  * <b>Interface:</b> org.bluez.HealthDevice1<br>
  * <br>
  * <b>Object path:</b><br>
- * [variable prefix]/{hci0,hci1,...}/dev_XX_XX_XX_XX_XX_XX<br>
+ *             [variable prefix]/{hci0,hci1,...}/dev_XX_XX_XX_XX_XX_XX<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * object MainChannel [readonly]<br>
+ * 		object MainChannel [readonly]<br>
  * <br>
- * The first reliable channel opened. It is needed by<br>
- * upper applications in order to send specific protocol<br>
- * data units. The first reliable can change after a<br>
- * reconnection.<br>
+ * 			The first reliable channel opened. It is needed by<br>
+ * 			upper applications in order to send specific protocol<br>
+ * 			data units. The first reliable can change after a<br>
+ * 			reconnection.<br>
  * <br>
  * <br>
  * <br>
@@ -42,9 +42,10 @@ public interface HealthDevice1 extends DBusInterface {
      * error is detected False value is returned.<br>
      * <br>
      *
-     * @return the boolean
+     * @return boolean - maybe null
+     *
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezOutOfRangeException       when value is out of range
+     * @throws BluezOutOfRangeException when value is out of range
      */
     boolean Echo() throws BluezInvalidArgumentsException, BluezOutOfRangeException;
 
@@ -58,12 +59,14 @@ public interface HealthDevice1 extends DBusInterface {
      * Returns the object path that identifies the data<br>
      * channel that is already connected.<br>
      * <br>
+     * 
+     * @param _application application
+     * @param _configuration configuration
      *
-     * @param _application   the application
-     * @param _configuration the configuration
-     * @return the d bus path
+     * @return DBusPath - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezHealthErrorException      when operation fails
+     * @throws BluezHealthErrorException when operation fails
      */
     DBusPath CreateChannel(DBusPath _application, String _configuration) throws BluezInvalidArgumentsException, BluezHealthErrorException;
 
@@ -75,11 +78,12 @@ public interface HealthDevice1 extends DBusInterface {
      * that received the data channel will be able to destroy<br>
      * it.<br>
      * <br>
-     *
-     * @param _channel the channel
+     * 
+     * @param _channel channel
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezNotFoundException         when item not found
-     * @throws BluezNotAllowedException       when operation not allowed
+     * @throws BluezNotFoundException when item not found
+     * @throws BluezNotAllowedException when operation not allowed
      */
     void DestroyChannel(DBusPath _channel) throws BluezInvalidArgumentsException, BluezNotFoundException, BluezNotAllowedException;
 

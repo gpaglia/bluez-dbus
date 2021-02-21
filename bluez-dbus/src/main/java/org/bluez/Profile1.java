@@ -1,23 +1,23 @@
 package org.bluez;
 
-import java.io.FileDescriptor;
 import java.util.Map;
 
 import org.bluez.exceptions.BluezCanceledException;
 import org.bluez.exceptions.BluezRejectedException;
 import org.freedesktop.dbus.DBusPath;
+import org.freedesktop.dbus.FileDescriptor;
 import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: profile-api.txt.<br>
  * <br>
  * <b>Service:</b> unique name<br>
  * <b>Interface:</b> org.bluez.Profile1<br>
  * <br>
  * <b>Object path:</b><br>
- * freely definable<br>
+ *             freely definable<br>
  * <br>
  */
 public interface Profile1 extends DBusInterface {
@@ -45,10 +45,11 @@ public interface Profile1 extends DBusInterface {
      * uint16 Version		Profile version (optional)<br>
      * uint16 Features		Profile features (optional)<br>
      * <br>
-     *
-     * @param _device        the device
-     * @param fd             the fd
-     * @param _fd_properties the fd properties
+     * 
+     * @param _device device
+     * @param fd fd
+     * @param _fd_properties fd_properties
+     * 
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
@@ -69,8 +70,9 @@ public interface Profile1 extends DBusInterface {
      * are disconnected before returning from this<br>
      * method call.<br>
      * <br>
-     *
-     * @param _device the device
+     * 
+     * @param _device device
+     * 
      * @throws BluezRejectedException when operation rejected
      * @throws BluezCanceledException when operation canceled
      */
