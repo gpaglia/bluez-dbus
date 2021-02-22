@@ -6,10 +6,10 @@ target/
 .project
 *.iml
 
-.idea
-build/
+# removed as there is one specific .gitignore file in the .idea directory
+#.idea
 
-bluez-dbus-osgi/META-INF
+*.log
 
 #gradle
 .gradle
@@ -29,6 +29,6 @@ gradle-app.setting
 # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
+/address
 
-
-
+dbus-java-osgi/META-INF

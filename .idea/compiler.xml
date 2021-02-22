@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="bluez-dbus" target="1.8" />
+      <module name="bluez-dbus-osgi" target="1.8" />
+      <module name="dbus-java-parent.bluez-dbus" target="11" />
+      <module name="dbus-java-parent.bluez-dbus.main" target="11" />
+      <module name="dbus-java-parent.bluez-dbus.test" target="11" />
+      <module name="dbus-java-parent.bluez-dbus.testFixtures" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
