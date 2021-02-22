@@ -68,7 +68,7 @@ subprojects { Project subp ->
                 archiveClassifier.set('tests')
                 from p.sourceSets.test.output
             }
-            if (! subp.getName().endsWith('osgi')) {
+            if (! subp.getName().endsWith('-osgi')) {
                 artifacts {
                     archives sourcesJar, javadocJar, testJar
                 }
@@ -78,7 +78,7 @@ subprojects { Project subp ->
             p.publishing {
                 publications.create("publish-${p.name}", MavenPublication) {
                     artifact jar
-                    if (! p.getName().endsWith('osgi')) {
+                    if (! p.getName().endsWith('-osgi')) {
                         artifact sourcesJar
                         artifact javadocJar
                         artifact testJar
