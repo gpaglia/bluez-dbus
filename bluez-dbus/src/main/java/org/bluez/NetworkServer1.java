@@ -3,14 +3,14 @@ package org.bluez;
 import org.freedesktop.dbus.interfaces.DBusInterface;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: network-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
  * <b>Interface:</b> org.bluez.NetworkServer1<br>
  * <br>
  * <b>Object path:</b><br>
- * /org/bluez/{hci0,hci1,...}<br>
+ *             /org/bluez/{hci0,hci1,...}<br>
  * <br>
  */
 public interface NetworkServer1 extends DBusInterface {
@@ -29,9 +29,9 @@ public interface NetworkServer1 extends DBusInterface {
      * and the BNEP server will be ready for incoming<br>
      * connections.<br>
      * <br>
-     *
-     * @param _uuid   the uuid
-     * @param _bridge the bridge
+     * 
+     * @param _uuid uuid
+     * @param _bridge bridge
      */
     void Register(String _uuid, String _bridge);
 
@@ -42,8 +42,8 @@ public interface NetworkServer1 extends DBusInterface {
      * <br>
      * All servers will be automatically unregistered when<br>
      * the calling application terminates.<br>
-     *
-     * @param _uuid the uuid
+     * 
+     * @param _uuid uuid
      */
     void Unregister(String _uuid);
 

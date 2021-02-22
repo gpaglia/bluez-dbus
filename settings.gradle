@@ -13,6 +13,7 @@ pluginManagement {
     //noinspection GroovyAssignabilityCheck
     plugins {
         id 'io.wusa.semver-git-plugin' version "${bluez__wusaSemverPluginVersion}"
+
         // bnd / osgi
         id 'biz.aQute.bnd.builder' version "${bluez__bndPluginVersion}"
 
@@ -25,6 +26,5 @@ pluginManagement {
 rootProject.name = 'bluez-dbus-parent'
 
 include 'bluez-dbus-platform',
-        'bluez-dbus' /*,
+        'bluez-dbus',
         'bluez-dbus-osgi'
-        */

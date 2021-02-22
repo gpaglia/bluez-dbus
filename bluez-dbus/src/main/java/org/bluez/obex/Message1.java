@@ -9,86 +9,86 @@ import org.freedesktop.dbus.DBusPath;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: obex-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez.obex<br>
  * <b>Interface:</b> org.bluez.obex.Message1<br>
  * <br>
  * <b>Object path:</b><br>
- * [Session object path]/{message0,...}<br>
+ *             [Session object path]/{message0,...}<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * string Folder [readonly]<br>
+ * 		string Folder [readonly]<br>
  * <br>
- * Folder which the message belongs to<br>
+ * 			Folder which the message belongs to<br>
  * <br>
- * string Subject [readonly]<br>
+ * 		string Subject [readonly]<br>
  * <br>
- * Message subject<br>
+ * 			Message subject<br>
  * <br>
- * string Timestamp [readonly]<br>
+ * 		string Timestamp [readonly]<br>
  * <br>
- * Message timestamp<br>
+ * 			Message timestamp<br>
  * <br>
- * string Sender [readonly]<br>
+ * 		string Sender [readonly]<br>
  * <br>
- * Message sender name<br>
+ * 			Message sender name<br>
  * <br>
- * string SenderAddress [readonly]<br>
+ * 		string SenderAddress [readonly]<br>
  * <br>
- * Message sender address<br>
+ * 			Message sender address<br>
  * <br>
- * string ReplyTo [readonly]<br>
+ * 		string ReplyTo [readonly]<br>
  * <br>
- * Message Reply-To address<br>
+ * 			Message Reply-To address<br>
  * <br>
- * string Recipient [readonly]<br>
+ * 		string Recipient [readonly]<br>
  * <br>
- * Message recipient name<br>
+ * 			Message recipient name<br>
  * <br>
- * string RecipientAddress [readonly]<br>
+ * 		string RecipientAddress [readonly]<br>
  * <br>
- * Message recipient address<br>
+ * 			Message recipient address<br>
  * <br>
- * string Type [readonly]<br>
+ * 		string Type [readonly]<br>
  * <br>
- * Message type<br>
+ * 			Message type<br>
  * <br>
- * Possible values: "email", "sms-gsm",<br>
- * "sms-cdma" and "mms"<br>
+ * 			Possible values: "email", "sms-gsm",<br>
+ * 			"sms-cdma" and "mms"<br>
  * <br>
- * uint64 Size [readonly]<br>
+ * 		uint64 Size [readonly]<br>
  * <br>
- * Message size in bytes<br>
+ * 			Message size in bytes<br>
  * <br>
- * string Status [readonly]<br>
+ * 		string Status [readonly]<br>
  * <br>
- * Message reception status<br>
+ * 			Message reception status<br>
  * <br>
- * Possible values: "complete",<br>
- * "fractioned" and "notification"<br>
+ * 			Possible values: "complete",<br>
+ * 			"fractioned" and "notification"<br>
  * <br>
- * boolean Priority [readonly]<br>
+ * 		boolean Priority [readonly]<br>
  * <br>
- * Message priority flag<br>
+ * 			Message priority flag<br>
  * <br>
- * boolean Read [read/write]<br>
+ * 		boolean Read [read/write]<br>
  * <br>
- * Message read flag<br>
+ * 			Message read flag<br>
  * <br>
- * boolean Deleted [writeonly]<br>
+ * 		boolean Deleted [writeonly]<br>
  * <br>
- * Message deleted flag<br>
+ * 			Message deleted flag<br>
  * <br>
- * boolean Sent [readonly]<br>
+ * 		boolean Sent [readonly]<br>
  * <br>
- * Message sent flag<br>
+ * 			Message sent flag<br>
  * <br>
- * boolean Protected [readonly]<br>
+ * 		boolean Protected [readonly]<br>
  * <br>
- * Message protected flag<br>
+ * 			Message protected flag<br>
  * <br>
  */
 public interface Message1 extends DBusInterface {
@@ -108,12 +108,14 @@ public interface Message1 extends DBusInterface {
      * The properties of this transfer are also returned along<br>
      * with the object path, to avoid a call to GetProperties.<br>
      * <br>
+     * 
+     * @param _targetfile targetfile
+     * @param _attachment attachment
      *
-     * @param _targetfile the targetfile
-     * @param _attachment the attachment
-     * @return the two tuple
+     * @return TwoTuple&lt;DBusPath, Map&lt;String,Variant&lt;?&gt;&gt;&gt; - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezFailedException           on failure
+     * @throws BluezFailedException on failure
      */
     TwoTuple<DBusPath, Map<String,Variant<?>>> Get(String _targetfile, boolean _attachment) throws BluezInvalidArgumentsException, BluezFailedException;
 

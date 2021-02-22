@@ -12,42 +12,42 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: advertising-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
  * <b>Interface:</b> org.bluez.LEAdvertisingManager1<br>
  * <br>
  * <b>Object path:</b><br>
- * /org/bluez/{hci0,hci1,...}<br>
+ *             /org/bluez/{hci0,hci1,...}<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * byte ActiveInstances<br>
+ * 		byte ActiveInstances<br>
  * <br>
- * Number of active advertising instances.<br>
+ * 			Number of active advertising instances.<br>
  * <br>
- * byte SupportedInstances<br>
+ * 		byte SupportedInstances<br>
  * <br>
- * Number of available advertising instances.<br>
+ * 			Number of available advertising instances.<br>
  * <br>
- * array{string} SupportedIncludes<br>
+ * 		array{string} SupportedIncludes<br>
  * <br>
- * List of supported system includes.<br>
+ * 			List of supported system includes.<br>
  * <br>
- * Possible values: "tx-power"<br>
- * "appearance"<br>
- * "local-name"<br>
+ * 			Possible values: "tx-power"<br>
+ * 					 "appearance"<br>
+ * 					 "local-name"<br>
  * <br>
- * array{string} SupportedSecondaryChannels [Experimental]<br>
+ * 		array{string} SupportedSecondaryChannels [Experimental]<br>
  * <br>
- * List of supported Secondary channels. Secondary<br>
- * channels can be used to advertise with the<br>
- * corresponding PHY.<br>
+ * 			List of supported Secondary channels. Secondary<br>
+ * 			channels can be used to advertise with the<br>
+ * 			corresponding PHY.<br>
  * <br>
- * Possible values: "1M"<br>
- * "2M"<br>
- * "Coded"<br>
+ * 			Possible values: "1M"<br>
+ * 					 "2M"<br>
+ * 					 "Coded"<br>
  * <br>
  */
 public interface LEAdvertisingManager1 extends DBusInterface {
@@ -74,13 +74,14 @@ public interface LEAdvertisingManager1 extends DBusInterface {
      * If the maximum number of advertisement instances is<br>
      * reached it will result in NotPermitted error.<br>
      * <br>
-     *
-     * @param _advertisement the advertisement
-     * @param _options       the options
+     * 
+     * @param _advertisement advertisement
+     * @param _options options
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezAlreadyExistsException    when item already exists
-     * @throws BluezInvalidLengthException    on BluezInvalidLengthException
-     * @throws BluezNotPermittedException     on BluezNotPermittedException
+     * @throws BluezAlreadyExistsException when item already exists
+     * @throws BluezInvalidLengthException on BluezInvalidLengthException
+     * @throws BluezNotPermittedException on BluezNotPermittedException
      */
     void RegisterAdvertisement(DBusPath _advertisement, Map<String, Variant<?>> _options) throws BluezInvalidArgumentsException, BluezAlreadyExistsException, BluezInvalidLengthException, BluezNotPermittedException;
 
@@ -91,10 +92,11 @@ public interface LEAdvertisingManager1 extends DBusInterface {
      * previously registered.  The object path parameter must<br>
      * match the same value that has been used on registration.<br>
      * <br>
-     *
-     * @param _advertisement the advertisement
+     * 
+     * @param _advertisement advertisement
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
-     * @throws BluezDoesNotExistException     when item does not exist
+     * @throws BluezDoesNotExistException when item does not exist
      */
     void UnregisterAdvertisement(DBusPath _advertisement) throws BluezInvalidArgumentsException, BluezDoesNotExistException;
 

@@ -5,37 +5,37 @@ import org.bluez.exceptions.BluezFailedException;
 import org.bluez.exceptions.BluezNotSupportedException;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: obex-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez.obex<br>
  * <b>Interface:</b> org.bluez.obex.Session1<br>
  * <br>
  * <b>Object path:</b><br>
- * /org/bluez/obex/server/session{0, 1, 2, ...} or<br>
- * /org/bluez/obex/client/session{0, 1, 2, ...}<br>
+ *             /org/bluez/obex/server/session{0, 1, 2, ...} or<br>
+ *             /org/bluez/obex/client/session{0, 1, 2, ...}<br>
  * <br>
  * <b>Supported properties:</b> <br>
  * <br>
- * string Source [readonly]<br>
+ * 		string Source [readonly]<br>
  * <br>
- * Bluetooth adapter address<br>
+ * 			Bluetooth adapter address<br>
  * <br>
- * string Destination [readonly]<br>
+ * 		string Destination [readonly]<br>
  * <br>
- * Bluetooth device address<br>
+ * 			Bluetooth device address<br>
  * <br>
- * byte Channel [readonly]<br>
+ * 		byte Channel [readonly]<br>
  * <br>
- * Bluetooth channel<br>
+ * 			Bluetooth channel<br>
  * <br>
- * string Target [readonly]<br>
+ * 		string Target [readonly]<br>
  * <br>
- * Target UUID<br>
+ * 			Target UUID<br>
  * <br>
- * string Root [readonly]<br>
+ * 		string Root [readonly]<br>
  * <br>
- * Root path<br>
+ * 			Root path<br>
  * <br>
  * <br>
  * <br>
@@ -48,9 +48,10 @@ public interface Session1 extends DBusInterface {
      * Get remote device capabilities.<br>
      * <br>
      *
-     * @return the string
+     * @return String - maybe null
+     *
      * @throws BluezNotSupportedException when operation not supported
-     * @throws BluezFailedException       on failure
+     * @throws BluezFailedException on failure
      */
     String GetCapabilities() throws BluezNotSupportedException, BluezFailedException;
 

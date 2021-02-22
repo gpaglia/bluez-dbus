@@ -13,7 +13,7 @@ import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.types.Variant;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: adapter-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
@@ -147,6 +147,14 @@ import org.freedesktop.dbus.types.Variant;
  * 			Local Device ID information in modalias format<br>
  * 			used by the kernel and udev.<br>
  * <br>
+ * 		array{string} Roles [readonly]<br>
+ * <br>
+ * 			List of supported roles. Possible values:<br>
+ * 				"central": Supports the central role.<br>
+ * 				"peripheral": Supports the peripheral role.<br>
+ * 				"central-peripheral": Supports both roles<br>
+ * 						      concurrently.<br>
+ * <br>
  */
 public interface Adapter1 extends DBusInterface {
 
@@ -193,7 +201,7 @@ public interface Adapter1 extends DBusInterface {
      * path. It will remove also the pairing information.<br>
      * <br>
      * 
-     * @param _device The device
+     * @param _device device
      * 
      * @throws BluezInvalidArgumentsException when argument is invalid
      * @throws BluezFailedException on failure
@@ -275,6 +283,21 @@ public interface Adapter1 extends DBusInterface {
      * 	if the adapter is already discoverable setting<br>
      * 	this filter won't do anything.<br>
      * <br>
+     * string Pattern (Default: none)<br>
+     * <br>
+     * 	Discover devices where the pattern matches<br>
+     * 	either the prefix of the address or<br>
+     * 	device name which is convenient way to limited<br>
+     * 	the number of device objects created during a<br>
+     * 	discovery.<br>
+     * <br>
+     * 	When set disregards device discoverable flags.<br>
+     * <br>
+     * 	Note: The pattern matching is ignored if there<br>
+     * 	are other client that don't set any pattern as<br>
+     * 	it work as a logical OR, also setting empty<br>
+     * 	string "" pattern will match any device found.<br>
+     * <br>
      * When discovery filter is set, Device objects will be<br>
      * created as new devices with matching criteria are<br>
      * discovered regardless of they are connectable or<br>
@@ -297,7 +320,7 @@ public interface Adapter1 extends DBusInterface {
      * right after call to StartDiscovery.<br>
      * <br>
      * 
-     * @param _filter The filter
+     * @param _filter filter
      * 
      * @throws BluezNotReadyException when bluez not ready
      * @throws BluezNotSupportedException when operation not supported
@@ -310,8 +333,9 @@ public interface Adapter1 extends DBusInterface {
      * <br>
      * Return available filters that can be given to<br>
      * SetDiscoveryFilter.<br>
-     * @return The discovery filters in an array.
      * <br>
+     *
+     * @return String[] - maybe null
      */
     String[] GetDiscoveryFilters();
 
@@ -349,8 +373,10 @@ public interface Adapter1 extends DBusInterface {
      * 		"random" - Random address<br>
      * <br>
      * 
-     * @param _properties The properties
-     * @return The Dbus path.
+     * @param _properties properties
+     *
+     * @return DBusPath - maybe null
+     * 
      * @throws BluezInvalidArgumentsException when argument is invalid
      * @throws BluezAlreadyExistsException when item already exists
      * @throws BluezNotSupportedException when operation not supported

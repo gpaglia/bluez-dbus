@@ -25,6 +25,7 @@ import com.github.hypfvieh.DbusHelper;
  * Wrapper class which represents a GATT characteristic on a remote device.
  *
  * @author hypfvieh
+ *
  */
 public class BluetoothGattCharacteristic extends AbstractBluetoothObject {
 
@@ -93,15 +94,14 @@ public class BluetoothGattCharacteristic extends AbstractBluetoothObject {
      * "offset": uint16 offset
      * "device": Object Device (Server only)
      * </pre>
-     *
-     * @param _value   value to write
+     * @param _value value to write
      * @param _options options to use
-     * @throws BluezFailedException             on failure if operation failed
-     * @throws BluezInProgressException         when operation already in progress if operation is already in progress
-     * @throws BluezNotPermittedException       if operation is not permitted
-     * @throws BluezNotAuthorizedException      when not authorized if not authorized
-     * @throws BluezNotSupportedException       when operation not supported if not supported
-     * @throws BluezInvalidValueLengthException the bluez invalid value length exception
+     * @throws BluezFailedException on failure if operation failed
+     * @throws BluezInProgressException when operation already in progress if operation is already in progress
+     * @throws BluezNotPermittedException if operation is not permitted
+     * @throws BluezNotAuthorizedException when not authorized if not authorized
+     * @throws BluezNotSupportedException when operation not supported if not supported
+     * @throws BluezInvalidValueLengthException if invalid length
      */
     public void writeValue(byte[] _value, Map<String, Object> _options) throws BluezFailedException, BluezInProgressException, BluezNotPermittedException, BluezNotAuthorizedException, BluezNotSupportedException, BluezInvalidValueLengthException {
         gattCharacteristic.WriteValue(_value, optionsToVariantMap(_options));
@@ -165,7 +165,7 @@ public class BluetoothGattCharacteristic extends AbstractBluetoothObject {
      * @return cached characteristics value, maybe null
      */
     public byte[] getValue() {
-        List<?> typed = getTyped("UUIDs", ArrayList.class);
+        List<?> typed = getTyped("Value", ArrayList.class);
         if (typed != null) {
             return byteListToByteArray(typed);
         }
@@ -208,10 +208,15 @@ public class BluetoothGattCharacteristic extends AbstractBluetoothObject {
      *         "secure-read" (Server only)
      *         "secure-write" (Server only)
      * </pre>
-     * @return string, maybe null
+     * @return List of String, maybe null
      */
-    public String getFlags() {
-        return getTyped("Flags", String.class);
+    @SuppressWarnings("unchecked")
+    public List<String> getFlags() {
+        List<?> typed = getTyped("Flags", ArrayList.class);
+        if (typed != null) {
+            return (List<String>) typed;
+        }
+        return null;
     }
 
     /**
@@ -221,11 +226,10 @@ public class BluetoothGattCharacteristic extends AbstractBluetoothObject {
      * if it supports value notifications or indications.
      * <br>
      * </p>
-     *
-     * @throws BluezFailedException       on failure if operation failed
-     * @throws BluezInProgressException   when operation already in progress if operation already in progress
+     * @throws BluezFailedException on failure if operation failed
+     * @throws BluezInProgressException when operation already in progress if operation already in progress
      * @throws BluezNotSupportedException when operation not supported if operation is not supported
-     * @throws BluezNotPermittedException the bluez not permitted exception
+     * @throws BluezNotPermittedException if access is not permitted
      */
     public void startNotify() throws BluezFailedException, BluezInProgressException, BluezNotSupportedException, BluezNotPermittedException {
         gattCharacteristic.StartNotify();

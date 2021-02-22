@@ -6,7 +6,7 @@ import org.bluez.exceptions.BluezFailedException;
 import org.freedesktop.dbus.interfaces.DBusInterface;
 
 /**
- * File generated - 2020-02-12.<br>
+ * File generated - 2020-06-18.<br>
  * Based on bluez Documentation: network-api.txt.<br>
  * <br>
  * <b>Service:</b> org.bluez<br>
@@ -49,10 +49,12 @@ public interface Network1 extends DBusInterface {
      * released either upon calling Disconnect() or when<br>
      * the client disappears from the message bus.<br>
      * <br>
+     * 
+     * @param _uuid uuid
      *
-     * @param _uuid the uuid
-     * @return the string
-     * @throws BluezAlreadyConnectedException        when already connected
+     * @return String - maybe null
+     * 
+     * @throws BluezAlreadyConnectedException when already connected
      * @throws BluezConnectionAttemptFailedException when connection attempt failed
      */
     String Connect(String _uuid) throws BluezAlreadyConnectedException, BluezConnectionAttemptFailedException;

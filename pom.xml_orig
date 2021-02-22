@@ -6,7 +6,7 @@
 
     <groupId>com.github.hypfvieh</groupId>
     <artifactId>bluez-dbus-parent</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.1.4-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <url>https://github.com/hypfvieh/bluez-dbus</url>
@@ -17,6 +17,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.7.0</junit.version>
     </properties>
 
     <modules>
@@ -31,7 +32,7 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>3.0.0-M1</version>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -58,7 +59,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
@@ -89,7 +90,7 @@
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.7</version>
                 </plugin>
-                
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -109,7 +110,7 @@
                         </archive>
                     </configuration>
                 </plugin>
-                
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -143,7 +144,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.25</version>
+                <version>1.7.30</version>
             </dependency>
 
             <dependency>
@@ -162,42 +163,35 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>5.5.2</version>
+                <version>${junit.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-params</artifactId>
-                <version>5.5.2</version>
+                <version>${junit.version}</version>
             </dependency>
 
             <!-- needed for IDE support -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.5.2</version>
+                <version>${junit.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.junit.platform</groupId>
                 <artifactId>junit-platform-launcher</artifactId>
-                <version>1.5.2</version>
+                <version>1.7.0</version>
             </dependency>
-            
-            <!-- Base dependencies for submodules -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.8.1</version>
-            </dependency>
-            
+
             <dependency>
                 <groupId>com.github.hypfvieh</groupId>
                 <artifactId>dbus-java</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.4</version>
             </dependency>
-            
-        </dependencies>        
+
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -235,66 +229,26 @@
     </dependencies>
 
     <scm>
-        <connection>scm:git:https://github.com/hypfvieh/dbus-java.git</connection>
-        <developerConnection>scm:git:https://github.com/hypfvieh/dbus-java.git</developerConnection>
-        <url>https://github.com/hypfvieh/dbus-java.git</url>
+        <connection>scm:git:https://github.com/hypfvieh/bluez-dbus.git</connection>
+        <developerConnection>scm:git:https://github.com/hypfvieh/bluez-dbus.git</developerConnection>
+        <url>https://github.com/hypfvieh/bluez-dbus.git</url>
       <tag>HEAD</tag>
   </scm>
 
     <licenses>
         <license>
-            <name>GNU Lesser/Library General Public License version 2</name>
-            <url>https://www.gnu.org/licenses/lgpl.html</url>
+            <name>MIT License</name>
+            <url>https://github.com/hypfvieh/bluez-dbus/blob/master/LICENSE</url>
         </license>
     </licenses>
 
     <developers>
-        <developer>
-            <id>matthew</id>
-            <name>Matthew Johnson</name>
-            <email>src@matthew.ath.cx</email>
-        </developer>
         <developer>
             <id>hypfvieh</id>
             <name>David M.</name>
             <email>hypfvieh@googlemail.com</email>
         </developer>
     </developers>
-
-    <contributors>
-        <contributor>
-            <name>thjomnx</name>
-            <url>https://github.com/thjomnx</url>
-        </contributor>
-        <contributor>
-            <name>RafalSumislawski</name>
-            <url>https://github.com/RafalSumislawski</url>
-        </contributor>
-        <contributor>
-            <name>lbeuster</name>
-            <url>https://github.com/lbeuster</url>
-        </contributor>
-        <contributor>
-            <name>littlefreaky</name>
-            <url>https://github.com/littlefreaky</url>
-        </contributor>
-        <contributor>
-            <name>sshort</name>
-            <url>https://github.com/sshort</url>
-        </contributor>
-        <contributor>
-            <name>michivi</name>
-            <url>https://github.com/michivi</url>
-        </contributor>
-        <contributor>
-            <name>rm5248</name>
-            <url>https://github.com/rm5248</url>
-        </contributor>
-        <contributor>
-            <name>chris-melman</name>
-            <url>https://github.com/chris-melman</url>
-        </contributor>
-    </contributors>
 
     <profiles>
         <profile>
