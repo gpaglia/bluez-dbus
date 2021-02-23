@@ -55,6 +55,7 @@ tasks.withType(Test) {
     }
 }
 
+/*
 // publishing
 publishing {
     publications {
@@ -68,3 +69,5 @@ publishing {
         mavenLocal()
     }
 }
+
+ */
