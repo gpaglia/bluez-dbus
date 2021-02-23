@@ -19,7 +19,7 @@ dependencies {
     api platform(project(':bluez-dbus-platform'))
 
     // dbus-java
-    implementation group: 'com.gpaglia.dbus', name: 'dbus-java'
+    api group: 'com.gpaglia.dbus', name: 'dbus-java'
 
     // https://mvnrepository.com/artifact/com.github.hypfvieh/java-utils
     implementation group: 'com.github.hypfvieh', name: 'java-utils'
