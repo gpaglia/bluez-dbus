@@ -77,21 +77,15 @@ subprojects { Project subp ->
             // publishing
             p.publishing {
                 publications.create("publish-${p.name}", MavenPublication) {
-                    // needed to have dependencies in the pom
-                    if (p.name.endsWith("-platform")) {
-                        from components.javaPlatform
-                    } else {
-                        from components.java
-                        // to be understood how to get testJar artifact published with dependencies
-                        versionMapping {
-                            usage('java-api') {
-                                fromResolutionOf('runtimeClasspath')
-                            }
-                            usage('java-runtime') {
-                                fromResolutionResult()
-                            }
+                    from components.java
+                    // to be understood how to get testJar artifact published with dependencies
+                    versionMapping {
+                        usage('java-api') {
+                            fromResolutionOf('runtimeClasspath')
                         }
-
+                        usage('java-runtime') {
+                            fromResolutionResult()
+                        }
                     }
                 }
 
@@ -101,6 +95,19 @@ subprojects { Project subp ->
             }
         }
 
+    }
+
+    subp.getPlugins().withId('java-platform') {
+        subp.afterEvaluate { Project p ->
+            p.publishing {
+                publications.create("publish-${p.name}", MavenPublication) {
+                    from components.javaPlatform
+                }
+                repositories {
+                    mavenLocal()
+                }
+            }
+        }
     }
 
     // configure repositories
